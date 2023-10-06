@@ -22,7 +22,7 @@ export function Main() {
        if (favourites.includes(song)) {
             return ;
             } 
-            setFavourites([...favourites, song])
+            setFavourites([...favourites, song]) 
         }
 
     function chooseTrack(track) {
@@ -43,9 +43,7 @@ export function Main() {
   }, [])
 
   //search
-  // async as each fetch relies on info being there
   async function search() {
-console.log('search for' + searchInput);
 var artistParams = {
     method: 'GET',
     headers: {
@@ -62,13 +60,8 @@ console.log("Artist ID is " + artistID)
 var returnedAlbums = await fetch('https://api.spotify.com/v1/artists/' + artistID + '/albums' + '?include_groups=album&limit=50', artistParams)
 .then(response => response.json())
 .then(data => {
-    console.log(data);
     setAlbums(data.items);
 });
-  }
-
-  function saveAlbum() {
-console.log('SAVE ALBUM')
   }
 
     return (
